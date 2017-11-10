@@ -46,7 +46,7 @@ for item in trackList:
 	try:
 		featureRes = sp.audio_features(item)
 		featureList.append(featureRes[0][curFeature])
-	except (ConnectionResetError, ProtocolError, ConnectionError):
+	except (ConnectionResetError, urllib3.exceptions.ProtocolError, requests.exceptions.ConnectionError):
 		print("ConnectionResetError, song skipped\n")
 		time.sleep(10)
 	print(featureList)
