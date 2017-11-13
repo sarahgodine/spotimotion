@@ -1,7 +1,7 @@
 import sys
-import pandas as pd
+# import pandas as pd
 import spotipy
-import json
+# import json
 import time
 import matplotlib.pyplot as plt
 sp = spotipy.Spotify()
