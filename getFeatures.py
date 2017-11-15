@@ -10,14 +10,17 @@ client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secr
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
 
+curFeature = 'valence'
+
 def main():
 	f = open('tracks.csv', 'r')
-	w = open('features.csv', 'w')
+	w = open('feature.csv', 'w')
 	reader = csv.reader(f, delimiter='\n')
 	for row in reader:
 		track = '\t'.join(row)
 		features = sp.audio_features(track)
-		w.write(str(features)+'\n')
+		feature = features[0][curFeature]
+		w.write(str(feature)+'\n')
 	f.close()
 	w.close()
 
