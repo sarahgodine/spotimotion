@@ -10,8 +10,6 @@ client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secr
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
 
-featureList = []
-
 def main():
 	f = open('tracks.csv', 'r')
 	w = open('features.csv', 'w')

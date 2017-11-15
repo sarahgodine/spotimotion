@@ -23,7 +23,7 @@ def main():
 	for album in albumList:
 		timeRes = sp.album(album)
 		fullDate = timeRes['release_date']
-		w.write(str(fullDate[0:4])+'\n')
+		w.write(str(fullDate[0:4])+'\n') # Change character range to get year, month, or day
 	f.close()
 	w.close()
 
