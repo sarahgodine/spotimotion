@@ -10,7 +10,7 @@ client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secr
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
 
-timeList = []
+albumList = []
 
 def main():
 	f = open('tracks.csv', 'r')
@@ -18,14 +18,12 @@ def main():
 	reader = csv.reader(f, delimiter='\n')
 	for row in reader:
 		track = '\t'.join(row)
-		w.write(str(features)+'\n')
-		albumRes = sp.track(item)['album']
+		albumRes = sp.track(track)['album']
 		albumList.append(albumRes['id'])
-		print(albumList)
-	for item in albumList:
-		yearRes = sp.album(item)
-		fullDate = yearRes['release_date']
-		yearList.append(fullDate[0:4])
+	for album in albumList:
+		timeRes = sp.album(album)
+		fullDate = timeRes['release_date']
+		w.write(str(fullDate[0:4])+'\n')
 	f.close()
 	w.close()
 
