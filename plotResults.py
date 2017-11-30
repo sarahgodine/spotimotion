@@ -1,6 +1,8 @@
 import sys
 import csv
+import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import linregress
 
 featureList = []
 timeList = []
@@ -33,6 +35,8 @@ def main():
 		i+=1
 	plt.plot(timeList, featureList)
 	plt.show()
+
+	print(linregress(np.array(timeList).astype(np.float), np.array(featureList).astype(np.float)))
 
 if __name__ == "__main__":
     main()
