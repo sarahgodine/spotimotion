@@ -17,8 +17,8 @@ def main():
 	playlistID = '6KOwiWg5zwrt83nEcx7HyI'
 	results = sp.user_playlist(playlistUser, playlistID, fields="tracks")
 	# results = sp.user_playlist('playlistgiants', '6KOwiWg5zwrt83nEcx7HyI', fields="tracks")
-	g = open('results.txt', 'w')
-	g.write(playlistUser + '\t' + playlistID + '\n')
+	g = open('results.txt', 'a')
+	g.write('\n' + playlistUser + '\t' + playlistID + '\n')
 	g.close()
 	tracks = results['tracks']
 	add_tracks(tracks)

@@ -10,9 +10,12 @@ client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secr
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
 
-curFeature = 'valence'
+curFeature = 'speechiness'
 
 def main():
+	g = open('results.txt', 'a')
+	g.write(curFeature + '\n')
+	g.close()
 	f = open('tracks.csv', 'r')
 	w = open('feature.csv', 'w')
 	reader = csv.reader(f, delimiter='\n')
