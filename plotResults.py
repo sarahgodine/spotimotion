@@ -36,7 +36,9 @@ def main():
 	plt.plot(timeList, featureList)
 	plt.show()
 
-	print(linregress(np.array(timeList).astype(np.float), np.array(featureList).astype(np.float)))
+	g = open('results.txt', 'a')
+	g.write(str(linregress(np.array(timeList).astype(np.float), np.array(featureList).astype(np.float))) + '\n')
+	g.close()
 
 if __name__ == "__main__":
     main()

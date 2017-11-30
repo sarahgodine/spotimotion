@@ -13,7 +13,13 @@ trackList = []
 
 def main():
 	# Query playlist on Spotify API and store tracks
-	results = sp.user_playlist('playlistgiants', '6KOwiWg5zwrt83nEcx7HyI', fields="tracks")
+	playlistUser = 'playlistgiants'
+	playlistID = '6KOwiWg5zwrt83nEcx7HyI'
+	results = sp.user_playlist(playlistUser, playlistID, fields="tracks")
+	# results = sp.user_playlist('playlistgiants', '6KOwiWg5zwrt83nEcx7HyI', fields="tracks")
+	g = open('results.txt', 'w')
+	g.write(playlistUser + '\t' + playlistID + '\n')
+	g.close()
 	tracks = results['tracks']
 	add_tracks(tracks)
 	while tracks['next']:
