@@ -27,7 +27,7 @@ def main():
 			w.write(fullDate[5:7]+'\n')
 		else:
 			w.write('13\n')
-		#w.write(str(fullDate[0:4])+'\n') # Change character range to get year, month, or day
+		# w.write(str(fullDate[0:4])+'\n') # Change character range to get year, month, or day
 	f.close()
 	w.close()
 
