@@ -10,7 +10,7 @@ client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secr
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 sp.trace=False
 
-curFeature = 'speechiness'
+curFeature = 'valence'
 
 def main():
 	# g = open('results.txt', 'a')
