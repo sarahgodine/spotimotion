@@ -22,8 +22,15 @@ def main():
 		albumList.append(albumRes['id'])
 	for album in albumList:
 		timeRes = sp.album(album)
-		fullDate = timeRes['release_date']
-		w.write(str(fullDate[0:4])+'\n') # Change character range to get year, month, or day
+		fullDate = str(timeRes['release_date'])
+
+		# if (len(fullDate) == 10):			# Months
+		# 	w.write(fullDate[5:7]+'\n')
+		# else:
+		# 	w.write('13\n')
+
+		w.write(str(fullDate[0:4])+'\n') 	# Years
+
 	f.close()
 	w.close()
 

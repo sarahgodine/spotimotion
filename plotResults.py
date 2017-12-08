@@ -33,12 +33,32 @@ def main():
 		timeList[i] = curTuple[0]
 		featureList[i] = curTuple[1]
 		i+=1
-	plt.plot(timeList, featureList)
+
+	# Average feature value for time period
+	results = []
+	timeVals = []
+	curTime = min(list(map(int, timeList)))
+	j = 0
+	for time in timeList:
+		if(int(time) == curTime):
+			timeVals.append(float(featureList[j]))
+		else:
+			if(len(timeVals) != 0):
+				results.append((curTime, (sum(timeVals)/len(timeVals))))
+			del timeVals[:]
+			timeVals.append(float(featureList[j]))
+			curTime += 1
+		j += 1
+	print(results)
+
+	plt.plot(*zip(*results))
+	plt.xlabel("Time")
+	plt.ylabel("Feature Value")
 	plt.show()
 
-	g = open('results.txt', 'a')
-	g.write(str(linregress(np.array(timeList).astype(np.float), np.array(featureList).astype(np.float))) + '\n')
-	g.close()
+	# g = open('results.txt', 'a')
+	# g.write(str(linregress(np.array(timeList).astype(np.float), np.array(featureList).astype(np.float))) + '\n')
+	# g.close()
 
 if __name__ == "__main__":
     main()
