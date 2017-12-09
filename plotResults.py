@@ -17,7 +17,7 @@ def main():
 		featureList.append(feature)
 	f.close()
 
-	g = open('time.csv', 'r')
+	g = open('year.csv', 'r')
 	reader = csv.reader(g, delimiter='\n')
 	for row in reader:
 		time = '\t'.join(row)
@@ -49,11 +49,10 @@ def main():
 			timeVals.append(float(featureList[j]))
 			curTime += 1
 		j += 1
-	print(results)
 
-	plt.plot(*zip(*results))
-	plt.xlabel("Time")
-	plt.ylabel("Feature Value")
+	plt.scatter(*zip(*results))
+	plt.xlabel("Year")
+	plt.ylabel("Valence")
 	plt.show()
 
 	# g = open('results.txt', 'a')
