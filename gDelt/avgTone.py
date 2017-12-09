@@ -1,7 +1,6 @@
 # Fall 2017, CSCI 4502/5502: Data Mining 
 # Sarah Godine
-# Homework 1
-# Dataset: http://archive.ics.uci.edu/ml/datasets/Appliances+energy+prediction 
+# Final Project: GDelt Findings
 
 import argparse
 import csv
