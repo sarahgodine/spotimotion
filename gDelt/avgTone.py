@@ -66,10 +66,11 @@ def calculate( dataFile, ithAttr):
     IQR = df[attribute].quantile(0.75) - df[attribute].quantile(0.25)
 
     # scatter plot
-    # plt.scatter(df['GLOBALEVENTID'],df['AvgTone'])
-    # plt.xlabel("GLOBALEVENTID")
-    # plt.ylabel("AvgTone")
-    # plt.show()
+    plt.scatter(df['GLOBALEVENTID'],df['AvgTone'])
+    plt.title("AvgTone for Presidential Inauguration")
+    plt.xlabel("GLOBALEVENTID")
+    plt.ylabel("AVGTONE")
+    plt.show()
 
     return numObj, minValue, maxValue, mean, stdev, Q1, median, Q3, IQR
 
