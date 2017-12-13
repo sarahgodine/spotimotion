@@ -42,14 +42,16 @@ def main():
         country = country_csv.split('/')[1].split('.')[0]
         # Calculate the T-test on TWO RELATED samples of scores, a and b.
         tstat, pvalue = stats.ttest_1samp(data, global_mean)
+
         data_list.append([country, tstat, pvalue])
         total_data = [data, global_data]
+
         plt.boxplot(total_data)
         plt.xticks([1,2],(country, 'global'))
         plt.title(country)
         plt.ylabel('valence')
-        # plt.show()
         plt.savefig('plots/'+country+'.png')
+        plt.show()
 
 
 if __name__ == "__main__":
